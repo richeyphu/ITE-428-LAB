@@ -12,8 +12,12 @@ applicant3skill = {"Java", "C++", "Ruby", "JavaScript", "Objective-C", "Go"}
 applicant4skill = {"Java", "Python", "Go", "SQL", "Swift"}
 applicant5skill = {"C++", "C", "C#", "Objective-C", "JavaScript", "SQL"}
 
-print("Applicant 1 skill match : {:.2f}%".format(percent_matched(applicant1skill)))
-print("Applicant 2 skill match : {:.2f}%".format(percent_matched(applicant2skill)))
-print("Applicant 3 skill match : {:.2f}%".format(percent_matched(applicant3skill)))
-print("Applicant 4 skill match : {:.2f}%".format(percent_matched(applicant4skill)))
-print("Applicant 5 skill match : {:.2f}%".format(percent_matched(applicant5skill)))
+applicants = [applicant1skill] + [applicant2skill] + [applicant3skill] + [applicant4skill] + [applicant5skill]
+for i, v in enumerate(applicants):
+    print("Applicant {} skill match : {:.2f}%".format(i + 1, percent_matched(v)))
+
+# print("Applicant 1 skill match : {:.2f}%".format(percent_matched(applicant1skill)))
+# print("Applicant 2 skill match : {:.2f}%".format(percent_matched(applicant2skill)))
+# print("Applicant 3 skill match : {:.2f}%".format(percent_matched(applicant3skill)))
+# print("Applicant 4 skill match : {:.2f}%".format(percent_matched(applicant4skill)))
+# print("Applicant 5 skill match : {:.2f}%".format(percent_matched(applicant5skill)))
