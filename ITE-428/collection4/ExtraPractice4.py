@@ -50,15 +50,15 @@ def title():
 
 
 # Online file ver.
-# url = "https://opendata.ecdc.europa.eu/covid19/casedistribution/json/"
-# r = requests.get(url)
-# data = json.loads(r.content)
+url = "https://opendata.ecdc.europa.eu/covid19/casedistribution/json/"
+r = requests.get(url)
+data = json.loads(r.content)
 
-# Local file ver.
-# Opening JSON file
-f = open("covid19_casedistribution.json", encoding="UTF-8")
-# returns JSON object as a dictionary
-data = json.load(f)
+# # Local file ver.
+# # Opening JSON file
+# f = open("covid19_casedistribution.json", encoding="UTF-8")
+# # returns JSON object as a dictionary
+# data = json.load(f)
 
 countries = set()
 alldate = set()
@@ -103,4 +103,4 @@ print("\t  {:<30} {} ({:.2f}%)".format("OTHERS", "█" * round(other_percent), o
 line()
 
 # Closing file
-f.close()
+# f.close()
