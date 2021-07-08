@@ -7,13 +7,13 @@ def readFile(fn):
     return words
 
 
-def load_setting():
+def load_config():
     cfg = "myFile/appConfig.ini"
     return [v.split('=')[1] for v in readFile(cfg)]
 
 
 if __name__ == '__main__':
-    decimal_places, comma, line, currency_unit = load_setting()
+    decimal_places, comma, line, currency_unit = load_config()
     comma = "," if comma == "yes" else ""
     total = 0
     for i in readFile("myFile/products267.csv"):
