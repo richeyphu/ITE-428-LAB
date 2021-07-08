@@ -9,7 +9,7 @@ def readFile(fn):
 
 def load_config():
     cfg = "myFile/appConfig.ini"
-    return [v.split('=')[1] for v in readFile(cfg)]
+    return [v.split('=', 1)[1] for v in readFile(cfg)]
 
 
 if __name__ == '__main__':
