@@ -30,10 +30,6 @@ if __name__ == '__main__':
 
     for i in comments:
         # if is_rude_word(i.split(' '), rude_word):
-        #     cannotshow.append(i + "\n")
-        #     num_bad += 1
-        # else:
-        #     canshow.append(i + "\n")
         if set(i.split(' ')) & set(rude_word):
             cannotshow.append(i + "\n")
             num_bad += 1
