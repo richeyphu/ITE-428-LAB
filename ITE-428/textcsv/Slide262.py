@@ -12,11 +12,11 @@ def writeFile(fn, l):
         fn.writelines(l)
 
 
-def is_rude_word(w, r):
-    for i in w:
-        if i in r:
-            return True
-    return False
+# def is_rude_word(w, r):
+#     for i in w:
+#         if i in r:
+#             return True
+#     return False
 
 
 if __name__ == '__main__':
@@ -29,7 +29,12 @@ if __name__ == '__main__':
     num_bad = 0
 
     for i in comments:
-        if is_rude_word(i.split(' '), rude_word):
+        # if is_rude_word(i.split(' '), rude_word):
+        #     cannotshow.append(i + "\n")
+        #     num_bad += 1
+        # else:
+        #     canshow.append(i + "\n")
+        if set(i.split(' ')) & set(rude_word):
             cannotshow.append(i + "\n")
             num_bad += 1
         else:
