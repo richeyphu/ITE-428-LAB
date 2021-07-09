@@ -1,10 +1,6 @@
 def readFile(fn):
     with open(file=fn, mode='r', encoding='utf8') as fn:
-        data = fn.readlines()
-        words = []
-        for i in data:
-            words.append(i.strip('\n'))
-    return words
+        return [v.strip('\n') for v in fn.readlines()]
 
 
 def load_config():
