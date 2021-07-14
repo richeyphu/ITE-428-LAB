@@ -39,7 +39,7 @@ def readcsv(fn):
             print(" {}".format(v), end=(" ," if i < len(alwaysd) - 1 else "\n"))
         line()
 
-        print("เดือนที่เจ็บลดลงทุกปี คือ", end="")
+        print("เดือนที่มีคนเจ็บลดลงทุกปี คือ", end="")
         for i, v in enumerate(lessinj):
             print(" {}".format(v), end=(" ," if i < len(lessinj) - 1 else "\n"))
         line()
