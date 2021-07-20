@@ -5,10 +5,10 @@ def sqlQuery(db, args=[]):
     with (sqlite3.connect(db)) as conn:
         conn.row_factory = sqlite3.Row
         sql_command = '''select productname, unitprice
-        from products 
-        natural join categories
-        where unitprice between {} and {}
-        order by 2 {}, 1'''.format(args[0], args[1], args[2])
+                         from products 
+                         natural join categories
+                         where unitprice between {} and {}
+                         order by 2 {}, 1'''.format(args[0], args[1], args[2])
         cursor = conn.execute(sql_command).fetchall()
         display(cursor)
 

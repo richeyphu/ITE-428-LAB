@@ -5,9 +5,9 @@ def sqlQuery(db, args=[]):
     with (sqlite3.connect(db)) as conn:
         conn.row_factory = sqlite3.Row
         sql_command = '''SELECT OrderId, OrderDate, Customer, ProductName, Price, CompanyName
-        FROM Invoices
-        WHERE OrderId = ?
-        ORDER BY 4'''
+                         FROM Invoices
+                         WHERE OrderId = ?
+                         ORDER BY 4'''
         cursor = conn.execute(sql_command, args).fetchall()
         display(cursor)
 

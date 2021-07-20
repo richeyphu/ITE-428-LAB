@@ -5,10 +5,10 @@ def sqlQuery(db, args=[]):
     with (sqlite3.connect(db)) as conn:
         conn.row_factory = sqlite3.Row
         sql_command = '''select firstname || ' ' || lastname || ' , ' || TitleOfCourtesy as name, count(orderId) as 'order'
-        from employees
-        natural join orders
-        group by employeeId
-        order by 2'''
+                         from employees
+                         natural join orders
+                         group by employeeId
+                         order by 2'''
         cursor = conn.execute(sql_command).fetchall()
         display(cursor)
 

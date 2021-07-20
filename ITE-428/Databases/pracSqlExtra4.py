@@ -5,9 +5,9 @@ def sqlQuery(db, args=[]):
     with (sqlite3.connect(db)) as conn:
         conn.row_factory = sqlite3.Row
         sql_command = '''select region, count(distinct country) as noc, count(distinct city) as ncity
-        from customers
-        group by region
-        order by 3 desc, 1'''
+                         from customers
+                         group by region
+                         order by 3 desc, 1'''
         cursor = conn.execute(sql_command).fetchall()
         display(cursor)
 

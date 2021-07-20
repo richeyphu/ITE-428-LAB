@@ -5,11 +5,11 @@ def sqlQuery(db, args=[]):
     with (sqlite3.connect(db)) as conn:
         conn.row_factory = sqlite3.Row
         sql_command = '''SELECT CompanyName as name, CategoryName as cat, count(ProductId) as noProd, avg(UnitPrice) as avgPrice
-        FROM Suppliers
-        NATURAL JOIN Categories
-        NATURAL JOIN Products
-        GROUP BY SupplierId, CategoryId
-        ORDER BY 1'''
+                         FROM Suppliers
+                         NATURAL JOIN Categories
+                         NATURAL JOIN Products
+                         GROUP BY SupplierId, CategoryId
+                         ORDER BY 1'''
         cursor = conn.execute(sql_command).fetchall()
         display(cursor)
 

@@ -5,9 +5,9 @@ def sqlQuery(db, args=[]):
     with (sqlite3.connect(db)) as conn:
         conn.row_factory = sqlite3.Row
         sql_command = '''select productId as id, productName, unitPrice * unitsInStock as StockValue
-        from products
-        where StockValue > ?
-        order by 3 desc'''
+                         from products
+                         where StockValue > ?
+                         order by 3 desc'''
         cursor = conn.execute(sql_command, args).fetchall()
         display(cursor)
 
