@@ -45,13 +45,13 @@ db.Products.insert({"pid":"p040","pname":"Zenfone 5z","pbrand":"Asus","pprice":2
 db.Products.insert({"pid":"p041","pname":"Red Magic Mars","pbrand":"Nubia","pprice":25000,"psize":{"x":3.5,"y":5}});
 
 // Basic Select
-db.Products.find({});
-db.Products.find({}).limit(5);
-db.Products.find({}).count();
+db.Products.find({});  //  แสดงข้อมูลทั้งหมด
+db.Products.find({}).limit(5);  // แสดงข้อมูล 5 ตัวแรก
+db.Products.find({}).count();  // นับจำนวนข้อมูลทั้งหมด
 
 // Order by
 db.Products.find({}).sort({"pprice":1});  // asc
-db.Products.find({}).sort({"pprice":-1});  //desc
+db.Products.find({}).sort({"pprice":-1});  // desc
 db.Products.find({}).sort({"pprice":-1,"pname":1});
 
 db.Products.find({}).sort({"pbrand":1,"pprice":-1});
@@ -80,10 +80,10 @@ db.Products.find({"psize.x":{"$exists":false}})  // true / false
 // like เหมือน
 
 // pname like 'V%' --> Start with
-db.Products.find({"pname":{"$regex":"^v","$options":"i"}})  // ignore case
+db.Products.find({"pname":{"$regex":"^v","$options":"i"}})  // "$options":"i" = Equal ignore case
 db.Products.find({"pname":{"$regex":"^v"}})
 
-// pname like '%s'
+// pname like '%s' --> End with
 db.Products.find({"pname":{"$regex":"es$","$options":"i"}})
 
 // pname like '%an%'
