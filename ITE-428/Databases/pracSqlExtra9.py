@@ -29,6 +29,7 @@ def display(cursor):
     print("{:<24}{:<11} : {:>10,.2f}".format("", "VAT (7%)", vat))
     print("{:<24}{:<11} : {:>10,.2f}".format("", "NET PRICE", total_price + vat))
     print('-' * 50)
+    print("Send by : {}".format(cursor[0]['CompanyName']))
 
 
 if __name__ == '__main__':
