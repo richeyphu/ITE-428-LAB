@@ -85,8 +85,8 @@ def getQueryList():
 
 
 if __name__ == '__main__':
-    # cloudDatabase = "mongodb+srv://test:<password>@cluster0.hf3dm.mongodb.net/Tni?retryWrites=true&w=majority"
-    cloudDatabase = "mongodb+srv://Phurit:<password>@cluster0.rqhdl.mongodb.net/Tni?retryWrites=true&w=majority"
+    # cloudDatabase = "mongodb+srv://test:e8KEYpEiuQFuurV3@cluster0.hf3dm.mongodb.net/Tni?retryWrites=true&w=majority"
+    cloudDatabase = "mongodb+srv://Phurit:BtBIeP0act7akXn5@cluster0.rqhdl.mongodb.net/Tni?retryWrites=true&w=majority"
 
     # hostname = socket.gethostname()
     # ip_address = socket.gethostbyname(hostname)
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     # print("{} -- {}".format(hostname, ip_address))
     # print("{}".format(datetime.now()))
 
-    # insertData()
+    insertData()
     # useStudents()
-    bmi()
+    # bmi()
     # export_students()
