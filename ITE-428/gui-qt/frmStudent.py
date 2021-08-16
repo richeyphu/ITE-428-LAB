@@ -78,6 +78,7 @@ class Ui_frm_student(object):
             self.tbl_Student.setHorizontalHeaderItem(2, header3)
             self.tbl_Student.setHorizontalHeaderItem(3, header4)
             self.tbl_Student.setHorizontalHeaderItem(4, header5)
+            self.tbl_Student.setColumnWidth(1, 250)
             # เอาข้อมูลใน cursor ไปใส่เป็น item
             row = 0
             for i in cursor:
