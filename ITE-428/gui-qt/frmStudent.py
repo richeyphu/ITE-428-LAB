@@ -80,17 +80,18 @@ class Ui_frm_student(object):
             self.tbl_Student.setHorizontalHeaderItem(4, header5)
             self.tbl_Student.setColumnWidth(1, 250)
             # เอาข้อมูลใน cursor ไปใส่เป็น item
-            row = 0
-            for i in cursor:
-                self.tbl_Student.setItem(row, 0, QTableWidgetItem("{}".format(i['student_id'])))
-                self.tbl_Student.setItem(row, 1, QTableWidgetItem("{} {}"
-                                                                  .format(i['name'].upper(), i['lastname'].upper())))
-                self.tbl_Student.setItem(row, 2, QTableWidgetItem("{}".format(i['major'])))
-                self.tbl_Student.setItem(row, 3, QTableWidgetItem("{:.2f}".format(i['gpax'])))
-                self.tbl_Student.setItem(row, 4, QTableWidgetItem("{:.2f}"
-                                                                  .format(self.calBMI(i['physical_data']['weight'],
-                                                                                      i['physical_data']['height']))))
-                row += 1
+            self.addToTable(cursor)
+            # row = 0
+            # for i in cursor:
+            #     self.tbl_Student.setItem(row, 0, QTableWidgetItem("{}".format(i['student_id'])))
+            #     self.tbl_Student.setItem(row, 1, QTableWidgetItem("{} {}"
+            #                                                       .format(i['name'].upper(), i['lastname'].upper())))
+            #     self.tbl_Student.setItem(row, 2, QTableWidgetItem("{}".format(i['major'])))
+            #     self.tbl_Student.setItem(row, 3, QTableWidgetItem("{:.2f}".format(i['gpax'])))
+            #     self.tbl_Student.setItem(row, 4, QTableWidgetItem("{:.2f}"
+            #                                                       .format(self.calBMI(i['physical_data']['weight'],
+            #                                                                           i['physical_data']['height']))))
+            #     row += 1
 
     def findStudent(self):
         stu_id = self.txt_ID_Search.toPlainText()
@@ -101,16 +102,18 @@ class Ui_frm_student(object):
             cursor = db.students.find(condition)
             self.lbl_Found.setText("Found = {}".format(count))
             self.tbl_Student.setRowCount(count)
-            for i, v in enumerate(cursor):
-                self.tbl_Student.setItem(i, 0, QTableWidgetItem("{}".format(v['student_id'])))
-                self.tbl_Student.setItem(i, 1, QTableWidgetItem("{} {}"
-                                                                .format(v['name'].upper(), v['lastname'].upper())))
-                self.tbl_Student.setItem(i, 2, QTableWidgetItem("{}".format(v['major'])))
-                self.tbl_Student.setItem(i, 3, QTableWidgetItem("{:.2f}".format(v['gpax'])))
-                self.tbl_Student.setItem(i, 4, QTableWidgetItem("{:.2f}"
-                                                                .format(self.calBMI(v['physical_data']['weight'],
-                                                                                    v['physical_data']['height']))))
+            self.addToTable(cursor)
 
+    def addToTable(self, cursor):
+        for i, v in enumerate(cursor):
+            self.tbl_Student.setItem(i, 0, QTableWidgetItem("{}".format(v['student_id'])))
+            self.tbl_Student.setItem(i, 1, QTableWidgetItem("{} {}"
+                                                            .format(v['name'].upper(), v['lastname'].upper())))
+            self.tbl_Student.setItem(i, 2, QTableWidgetItem("{}".format(v['major'])))
+            self.tbl_Student.setItem(i, 3, QTableWidgetItem("{:.2f}".format(v['gpax'])))
+            self.tbl_Student.setItem(i, 4, QTableWidgetItem("{:.2f}"
+                                                            .format(self.calBMI(v['physical_data']['weight'],
+                                                                                v['physical_data']['height']))))
     def calBMI(self, w, h):
         return w / ((h / 100) ** 2)
 
