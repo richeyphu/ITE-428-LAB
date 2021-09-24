@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<form action="regis.py" method="get">
+    <table>
+        <tr>
+            <td>
+                Enter Username:
+            </td>
+            <td>
+                <input type="text" name="user" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter Password:
+            </td>
+            <td>
+                <input type="password" name="pass" id="Password" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter Re-Password:
+            </td>
+            <td>
+                <input type="password" id="repassword" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter Name:
+            </td>
+            <td>
+                <input type="text" name="name" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter Lastname:
+            </td>
+            <td>
+                <input type="text" name="lname" required>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Register" onclick="return Validate()">
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        function Validate() {
+            var password = document.getElementById("Password").value;
+            var confirmPassword = document.getElementById("repassword").value;
+            if (password != confirmPassword) {
+
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+</form>
+</body>
+</html>

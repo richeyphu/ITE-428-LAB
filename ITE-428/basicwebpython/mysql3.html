@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Products</title>
+</head>
+<body>
+<form action="mysql3.py" method="post">
+    <table align="center">
+        <tr>
+            <td colspan="2" align="center">
+                <h2>Find Products</h2>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Enter START Price :
+            </td>
+            <td>
+                <input type="number" step="any" name="start" id="start" required>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Enter END Price :
+            </td>
+            <td>
+                <input type="number" step="any" name="end" id="end" required>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Sort Price :
+            </td>
+            <td style="padding-top: 5px">
+                <input type="radio" id="asc" name="sort" value="asc" checked>
+                <label for="asc">Ascending</label><br>
+                <input type="radio" id="desc" name="sort" value="desc">
+                <label for="desc">Descending</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center" style="padding-top: 20px">
+                <input type="submit" value="Find" onclick="return Validate()">
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript">
+    function Validate() {
+        let start = parseFloat(document.getElementById("start").value)
+        let end = parseFloat(document.getElementById("end").value)
+        if (end < start) {
+            alert("END Price should be more than START Price")
+            return false
+        }
+        /*
+        let isNum = /^\d+$/
+        if (!isNum.test(start) || !isNum.test(end)) {
+            alert("Please enter only NUMBER")
+            return false
+        }
+        */
+        return true
+    }
+</script>
+</body>
+</html>
