@@ -1,1 +1,4 @@
-*.ipynb linguist-language=Python
+# *.ipynb linguist-language=Python
+# *.ipynb linguist-documentation=false
+# *.ipynb linguist-vendored
+*.ipynb linguist-detectable=false
